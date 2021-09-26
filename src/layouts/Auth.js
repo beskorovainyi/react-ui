@@ -1,5 +1,19 @@
 import React from "react";
 
+// react-bootstrap components
+// import {
+//   Badge,
+//   Button,
+//   Card,
+//   Form,
+//   InputGroup,
+//   Navbar,
+//   Nav,
+//   Container,
+//   ProgressBar,
+//   Row,
+//   Col,
+// } from "react-bootstrap";
 
 const Auth = () => {
 
