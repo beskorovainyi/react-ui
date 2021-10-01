@@ -2,6 +2,7 @@ import React from "react";
 import AuthUser from "../views/AuthUser";
 import Footer from "../components/Footer";
 import Menu from "../components/Menu";
+import RegistrationUser from "../views/RegistrationUser";
 
 
 const AuthLayout = () => {
@@ -10,7 +11,8 @@ const AuthLayout = () => {
       <>
         <Menu />
         <AuthUser />
-        <Footer />
+        <RegistrationUser />
+        {/*<Footer />*/}
       </>
   )
 
