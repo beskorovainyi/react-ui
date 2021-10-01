@@ -4,7 +4,6 @@ import React from "react"
 import {
   Navbar,
   Nav,
-  NavItem,
   Container,
   NavDropdown,
 } from "react-bootstrap";
