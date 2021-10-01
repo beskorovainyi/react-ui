@@ -2,7 +2,7 @@ import React from "react";
 import Menu from "../components/Menu";
 
 
-const Dashboard = () => {
+const DashboardLayout = () => {
 
   return (
 
@@ -11,4 +11,4 @@ const Dashboard = () => {
   )
 }
 
-export default Dashboard
+export default DashboardLayout
