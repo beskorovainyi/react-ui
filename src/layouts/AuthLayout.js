@@ -1,5 +1,5 @@
 import React from "react";
-import AuthUser from "../views/AuthUser";
+import LoginUser from "../views/LoginUser";
 import Footer from "../components/Footer";
 import Menu from "../components/Menu";
 import RegistrationUser from "../views/RegistrationUser";
@@ -7,15 +7,14 @@ import RegistrationUser from "../views/RegistrationUser";
 
 const AuthLayout = () => {
 
-  return(
+  return (
       <>
         <Menu />
-        <AuthUser />
+        <LoginUser />
         <RegistrationUser />
-        {/*<Footer />*/}
+        <Footer />
       </>
   )
-
 }
 
 export default AuthLayout

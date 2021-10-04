@@ -15,15 +15,18 @@ const Menu = () => {
         <Navbar bg="light" expand="sm">
           <Container>
             <Navbar.Brand>
-            Application
+              Application
             </Navbar.Brand>
             <Navbar.Collapse>
               <Nav className="me-auto">
+                <Nav.Link href="/registration">
+                  Registration
+                </Nav.Link>
+                <Nav.Link href="/login">
+                  login
+                </Nav.Link>
                 <Nav.Link href="#logout">
                   logout
-                </Nav.Link>
-                <Nav.Link href="#login">
-                  login
                 </Nav.Link>
               </Nav>
               <NavDropdown id="menu-dropdown" title="Menu">
