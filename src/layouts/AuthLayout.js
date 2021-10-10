@@ -1,17 +1,30 @@
 import React from "react";
-import LoginUser from "../views/LoginUser";
 import Footer from "../components/Footer";
 import Menu from "../components/Menu";
-import RegistrationUser from "../views/RegistrationUser";
-
+import {Switch, Route} from "react-router-dom";
+import routes from "../routes/routesAuth"
 
 const AuthLayout = () => {
+
+
+  const getRoutes = (routes) => {
+    return routes.map((prop, key) => {
+      if (prop.layout === "/auth") {
+        return (
+            <Route
+            path={prop.layout + prop.path}
+            key={key}
+            component={prop.component}
+            />
+        )
+      }
+    })
+  }
 
   return (
       <>
         <Menu />
-        <LoginUser />
-        <RegistrationUser />
+        <Switch>{getRoutes(routes)}</Switch>
         <Footer />
       </>
   )

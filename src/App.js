@@ -14,7 +14,8 @@ const App = () => {
         <Switch>
           <Route path="/auth" component={(props) => <AuthLayout {...props} />}/>
           <Route path="/dashboard" component={(props) => <DashboardLayout {...props} />}/>
-          <Redirect from="/" to="/auth" />
+          <Route path="/action_1" component={(props) => <DashboardLayout {...props} />}/>
+          <Redirect from="" to="/auth/login" />
         </Switch>
       </BrowserRouter>
   );

@@ -6,7 +6,7 @@ import registrationUser from "../actions/registrationUser";
 
 const RegistrationUser = () => {
 
-  const minLength = (value, length) => value.length >= length;
+  // const minLength = (value, length) => value.length >= length;
   const equalTo = (value1, value2) => value1 === value2;
 
   const [name, setName] = useState("");
@@ -14,9 +14,9 @@ const RegistrationUser = () => {
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
   const [registerConfirmPasswordState, setRegisterConfirmPasswordState] = useState(false);
-  const [registerEmailState, setRegisterEmailState] = useState(false);
-  const [registerNameState, setRegisterNameState] = useState(false);
-  const [registerPasswordState, setRegisterPasswordState] = useState(false);
+  // const [registerEmailState, setRegisterEmailState] = useState(false);
+  // const [registerNameState, setRegisterNameState] = useState(false);
+  // const [registerPasswordState, setRegisterPasswordState] = useState(false);
 
 
   function handleRegistration() {
@@ -29,7 +29,7 @@ const RegistrationUser = () => {
       <>
         <Container>
           <Form>
-            <Card>
+            <Card style={{ width: '18rem'}}>
               <Card.Header>
                 <h3>Register user</h3>
               </Card.Header>
@@ -77,6 +77,7 @@ const RegistrationUser = () => {
                       placeholder="Confirm password"
                       type="password"
                       onChange={event => {
+
                         setConfirmPassword(event.target.value)
                         if (equalTo(password, confirmPassword)) {
                           setRegisterConfirmPasswordState(true)
