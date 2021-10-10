@@ -1,4 +1,5 @@
 import React from "react"
+import {Link, useLocation} from "react-router-dom";
 
 // react-bootstrap components
 import {
@@ -9,8 +10,13 @@ import {
 } from "react-bootstrap";
 
 const Menu = () => {
+  let location = useLocation()
 
-  return(
+  const logout = () => {
+    console.log("logout")
+  }
+
+  return (
       <>
         <Navbar bg="light" expand="sm">
           <Container>
@@ -19,19 +25,31 @@ const Menu = () => {
             </Navbar.Brand>
             <Navbar.Collapse>
               <Nav className="me-auto">
-                <Nav.Link href="/registration">
+                <Nav.Link to="/auth/registration" as={Link}
+                          className={
+                            location.pathname === "/auth/registration"
+                                ? "active"
+                                : ""
+                          }
+                >
                   Registration
                 </Nav.Link>
-                <Nav.Link href="/login">
+                <Nav.Link to="/auth/login" as={Link}
+                          className={
+                            location.pathname === "/auth/login"
+                                ? "active"
+                                : ""
+                          }
+                >
                   login
                 </Nav.Link>
-                <Nav.Link href="#logout">
+                <Nav.Link onClick={logout}>
                   logout
                 </Nav.Link>
               </Nav>
               <NavDropdown id="menu-dropdown" title="Menu">
-                <NavDropdown.Item href="">Action</NavDropdown.Item>
-                <NavDropdown.Item href="">Action</NavDropdown.Item>
+                <NavDropdown.Item href="/action_1">Action 1</NavDropdown.Item>
+                <NavDropdown.Item to="/auth/registration" as={Link}>Action 2</NavDropdown.Item>
               </NavDropdown>
             </Navbar.Collapse>
           </Container>

@@ -5,17 +5,10 @@ import loginUser from "../actions/loginUser";
 
 // react-bootstrap components
 import {
-  Badge,
   Button,
   Card,
   Form,
-  InputGroup,
-  Navbar,
-  Nav,
   Container,
-  ProgressBar,
-  Row,
-  Col,
 } from "react-bootstrap";
 
 
@@ -23,7 +16,7 @@ const LoginUser = () => {
 
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const minLength = (value, length) => value.length >= length;
+  // const minLength = (value, length) => value.length >= length;
 
   function handleLogin() {
     loginUser(email, password)

@@ -2,34 +2,41 @@ import React from "react";
 import {useState} from "react";
 import {Card, Container, Form, Button} from "react-bootstrap";
 import registrationUser from "../actions/registrationUser";
+import {useHistory} from "react-router-dom";
 
 
 const RegistrationUser = () => {
 
-  const minLength = (value, length) => value.length >= length;
+  // const minLength = (value, length) => value.length >= length;
   const equalTo = (value1, value2) => value1 === value2;
+  const history = useHistory()
 
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
   const [registerConfirmPasswordState, setRegisterConfirmPasswordState] = useState(false);
-  const [registerEmailState, setRegisterEmailState] = useState(false);
-  const [registerNameState, setRegisterNameState] = useState(false);
-  const [registerPasswordState, setRegisterPasswordState] = useState(false);
+  // const [registerEmailState, setRegisterEmailState] = useState(false);
+  // const [registerNameState, setRegisterNameState] = useState(false);
+  // const [registerPasswordState, setRegisterPasswordState] = useState(false);
 
 
   function handleRegistration() {
     registrationUser(name, email, password)
-        .then()
-        .catch()
+        .then(response => {
+          if (response.status === 200) {
+            history.push('/auth/login')
+          } else {
+            alert(response.statusText)
+          }
+        })
   }
 
   return (
       <>
         <Container>
           <Form>
-            <Card>
+            <Card style={{width: '18rem'}}>
               <Card.Header>
                 <h3>Register user</h3>
               </Card.Header>
@@ -77,6 +84,7 @@ const RegistrationUser = () => {
                       placeholder="Confirm password"
                       type="password"
                       onChange={event => {
+
                         setConfirmPassword(event.target.value)
                         if (equalTo(password, confirmPassword)) {
                           setRegisterConfirmPasswordState(true)

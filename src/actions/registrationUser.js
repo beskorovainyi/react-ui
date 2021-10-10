@@ -12,10 +12,8 @@ const registrationUser = async (name, email, password) => {
 
   try {
     const response = await axios.post(keys.URLS.SERVER_URL + config.ENDPOINTS.REGISTRATION_USER, body)
-    console.log(response)
     return response
   } catch (error) {
-    console.log(error.response)
     return error.response
   }
 
