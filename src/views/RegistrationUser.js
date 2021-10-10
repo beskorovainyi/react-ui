@@ -2,12 +2,14 @@ import React from "react";
 import {useState} from "react";
 import {Card, Container, Form, Button} from "react-bootstrap";
 import registrationUser from "../actions/registrationUser";
+import {useHistory} from "react-router-dom";
 
 
 const RegistrationUser = () => {
 
   // const minLength = (value, length) => value.length >= length;
   const equalTo = (value1, value2) => value1 === value2;
+  const history = useHistory()
 
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
@@ -21,15 +23,20 @@ const RegistrationUser = () => {
 
   function handleRegistration() {
     registrationUser(name, email, password)
-        .then()
-        .catch()
+        .then(response => {
+          if (response.status === 200) {
+            history.push('/auth/login')
+          } else {
+            alert(response.statusText)
+          }
+        })
   }
 
   return (
       <>
         <Container>
           <Form>
-            <Card style={{ width: '18rem'}}>
+            <Card style={{width: '18rem'}}>
               <Card.Header>
                 <h3>Register user</h3>
               </Card.Header>
