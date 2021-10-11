@@ -1,6 +1,8 @@
 import React from "react";
 import {useState} from "react";
 import loginUser from "../actions/loginUser";
+import {useHistory} from "react-router";
+import {useDispatch} from "react-redux";
 
 
 // react-bootstrap components
@@ -10,25 +12,36 @@ import {
   Form,
   Container,
 } from "react-bootstrap";
+import {setUser} from "../reducers/userReducer";
 
 
 const LoginUser = () => {
 
+  const dispatch = useDispatch()
+  const history = useHistory()
+
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+
   // const minLength = (value, length) => value.length >= length;
 
   function handleLogin() {
     loginUser(email, password)
-        .then()
-        .catch()
+        .then(response => {
+          if (response.status === 200) {
+            dispatch(setUser("true"))
+            history.push('/dashboard')
+          } else {
+            alert(response.statusText)
+          }
+        })
   }
 
   return (
       <>
         <Container>
           <Form>
-            <Card style={{ width: '18rem'}}>
+            <Card style={{width: '18rem'}}>
               <Card.Header>
                 <h3>Login</h3>
               </Card.Header>
