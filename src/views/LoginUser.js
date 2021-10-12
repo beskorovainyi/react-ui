@@ -29,7 +29,7 @@ const LoginUser = () => {
     loginUser(email, password)
         .then(response => {
           if (response.status === 200) {
-            dispatch(setUser("true"))
+            dispatch(setUser(response.config.data))
             history.push('/dashboard')
           } else {
             alert(response.statusText)
