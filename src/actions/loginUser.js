@@ -12,11 +12,11 @@ const loginUser = async (email, password) => {
   try {
     const response = await axios.post(keys.URLS.SERVER_URL + config.ENDPOINTS.LOGIN_USER, body)
     localStorage.setItem("access", response.data.access)
-    console.log(response)
+    localStorage.setItem("refresh", response.data.refresh)
     return response
   } catch (error) {
     localStorage.removeItem("access")
-    console.log(error.response)
+    localStorage.removeItem("refresh")
     return error.response
   }
 

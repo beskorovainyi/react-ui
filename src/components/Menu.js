@@ -1,5 +1,10 @@
 import React from "react"
 import {Link, useLocation} from "react-router-dom";
+import {useSelector} from "react-redux";
+import {persistStore, persistReducer} from "redux-persist";
+import storage from 'redux-persist/lib/storage'
+
+import rootReducer from '../reducers/index'
 
 // react-bootstrap components
 import {
@@ -16,12 +21,16 @@ const Menu = () => {
     console.log("logout")
   }
 
+  const user_name = useSelector(state => state.user.currentUser)
+
+
   return (
       <>
         <Navbar bg="light" expand="sm">
           <Container>
             <Navbar.Brand>
-              Application
+              {/*Application*/}
+              {user_name}
             </Navbar.Brand>
             <Navbar.Collapse>
               <Nav className="me-auto">

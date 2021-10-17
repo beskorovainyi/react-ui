@@ -29,7 +29,9 @@ const LoginUser = () => {
     loginUser(email, password)
         .then(response => {
           if (response.status === 200) {
-            dispatch(setUser(response.config.data))
+            let user = JSON.parse(response.config.data)
+            console.log(typeof user)
+            dispatch(setUser(user.email))
             history.push('/dashboard')
           } else {
             alert(response.statusText)
