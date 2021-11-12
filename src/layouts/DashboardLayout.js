@@ -1,5 +1,5 @@
 import React from "react";
-import Menu from "../components/Menu";
+import Menu from "../components/Menu/Menu";
 import {Redirect, Switch, Route} from "react-router-dom";
 import Dashboard from "../views/Dashboard";
 import routes from "../routes/routesDashboard";

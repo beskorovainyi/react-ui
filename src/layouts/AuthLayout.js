@@ -1,6 +1,6 @@
 import React from "react";
-import Footer from "../components/Footer";
-import Menu from "../components/Menu";
+import Footer from "../components/Footer/Footer";
+import Menu from "../components/Menu/Menu";
 import {Switch, Route} from "react-router-dom";
 import routes from "../routes/routesAuth"
 
